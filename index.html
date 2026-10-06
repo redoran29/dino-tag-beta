@@ -39,7 +39,7 @@ body {
 }
 
 #status {
-	background-color: #242424;
+	background-color: #213324;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -106,6 +106,26 @@ body {
 #canvas {
 	image-rendering: pixelated;
 }
+
+/* The loading bar in the colors of the game's panels. */
+#status-progress {
+	appearance: none;
+	height: 10px;
+	border: 2px solid #ede6cc;
+	background: transparent;
+}
+
+#status-progress::-webkit-progress-bar {
+	background: transparent;
+}
+
+#status-progress::-webkit-progress-value {
+	background: #ede6cc;
+}
+
+#status-progress::-moz-progress-bar {
+	background: #ede6cc;
+}
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
@@ -121,7 +141,7 @@ body {
 		</noscript>
 
 		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
+			<img id="status-splash" class="show-image--true fullsize--false use-filter--false" src="index.png" alt="">
 			<progress id="status-progress"></progress>
 			<div id="status-notice"></div>
 		</div>
@@ -278,7 +298,7 @@ const yandexReady = (function () {
 	}).catch((error) => console.warn('Yandex Games SDK unavailable, playing locally.', error));
 }());
 
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":8703580,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":8716260,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const loadingProgress = document.getElementById('status-progress');
 const engine = new Engine({
