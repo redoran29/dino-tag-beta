@@ -90,10 +90,26 @@ body {
 	text-align: center;
 	z-index: 1;
 }
+
+/* No page scroll, pull-to-refresh, text selection or long-tap callout (req. 1.6.1.8, 1.10.2). */
+html, body {
+	overscroll-behavior: none;
+}
+
+body {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+/* At fractional device pixel ratios the browser resamples the canvas: keep the pixels sharp. */
+#canvas {
+	image-rendering: pixelated;
+}
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<style>html, body { overscroll-behavior: none; } body { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; } #canvas { image-rendering: pixelated; }</style><script>document.addEventListener('contextmenu', (event) => event.preventDefault());</script>
+
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -112,9 +128,173 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":8701644,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+// The loading screen covers the canvas, whose own handler doesn't reach it.
+document.addEventListener('contextmenu', (event) => event.preventDefault());
+
+// Yandex Games, when the game runs there: the platform's side of autoload/platform.gd, which
+// reaches it through JavaScriptBridge (D11). Elsewhere (the beta, local checks) `available` stays
+// false and the game keeps its local backend.
+const yandexGames = {
+	available: false,
+	// The Yandex Games interface language, ISO 639-1.
+	lang: '',
+	// The player's saved data as JSON, or null if it couldn't be loaded.
+	data: null,
+	// Whether the platform has paused the game: an ad, a hidden tab. Platform sets onPauseChanged.
+	paused: false,
+	onPauseChanged: null,
+};
+window.yandexGames = yandexGames;
+
+const yandexReady = (function () {
+	const TIMEOUT_MS = 10000;
+	// The platform allows 100 writes per 5 minutes.
+	const SAVE_INTERVAL_MS = 3000;
+	const AD_OPEN_TIMEOUT_MS = 5000;
+	let sdk = null;
+	let player = null;
+	let pendingSave = null;
+	let saving = false;
+	let lastSaveAt = -Infinity;
+	let saveTimer = 0;
+
+	function loadScript(src) {
+		return new Promise((resolve, reject) => {
+			const script = document.createElement('script');
+			script.src = src;
+			script.onload = resolve;
+			script.onerror = () => reject(new Error(`${src} didn't load`));
+			document.head.append(script);
+		});
+	}
+
+	// Outside Yandex the SDK may never answer.
+	function inTime(promise) {
+		return Promise.race([promise, new Promise((resolve, reject) => {
+			setTimeout(() => reject(new Error('no answer in time')), TIMEOUT_MS);
+		})]);
+	}
+
+	function setPaused(paused) {
+		yandexGames.paused = paused;
+		if (yandexGames.onPauseChanged) {
+			yandexGames.onPauseChanged(paused);
+		}
+	}
+
+	// One write at a time, and none sooner than SAVE_INTERVAL_MS after the last: a newer save
+	// replaces one still waiting. A hidden page writes at once, as it may never come back.
+	function writeSave(now) {
+		if (!pendingSave || saving) {
+			return;
+		}
+		const wait = lastSaveAt + SAVE_INTERVAL_MS - Date.now();
+		if (wait > 0 && !now) {
+			saveTimer = saveTimer || setTimeout(() => {
+				saveTimer = 0;
+				writeSave(false);
+			}, wait);
+			return;
+		}
+		const data = pendingSave;
+		pendingSave = null;
+		saving = true;
+		lastSaveAt = Date.now();
+		player.setData(data, true).catch((error) => {
+			console.warn('Yandex Games: saving failed, will retry.', error);
+			pendingSave = pendingSave || data;
+		}).finally(() => {
+			saving = false;
+			writeSave(false);
+		});
+	}
+
+	yandexGames.ready = () => sdk.features.LoadingAPI?.ready();
+	yandexGames.gameplay = (on) => (on ? sdk.features.GameplayAPI?.start() : sdk.features.GameplayAPI?.stop());
+	yandexGames.save = (json) => {
+		if (player) {
+			pendingSave = JSON.parse(json);
+			writeSave(false);
+		}
+	};
+	// Calls done once the ad is over, or if none showed. Offline the SDK calls nothing back, and
+	// an ad that hasn't opened in AD_OPEN_TIMEOUT_MS won't hold the game up either.
+	yandexGames.showAd = (done) => {
+		let opened = false;
+		let finished = false;
+		const finish = () => {
+			if (!finished) {
+				finished = true;
+				done();
+			}
+		};
+		if (!navigator.onLine) {
+			finish();
+			return;
+		}
+		setTimeout(() => {
+			if (!opened) {
+				finish();
+			}
+		}, AD_OPEN_TIMEOUT_MS);
+		try {
+			sdk.adv.showFullscreenAdv({
+				callbacks: {
+					onOpen: () => {
+						opened = true;
+					},
+					onClose: finish,
+					onError: finish,
+				},
+			});
+		} catch (error) {
+			console.warn('Yandex Games: no ad.', error);
+			finish();
+		}
+	};
+	document.addEventListener('visibilitychange', () => {
+		if (document.hidden) {
+			writeSave(true);
+		}
+	});
+
+	// Yandex always frames the game, and its SDK loader refuses to start outside a frame.
+	// `?yandex` opens the SDK's dev adapter at the top level (sdk-dev-proxy --dev-mode).
+	if (window === window.top && !new URLSearchParams(window.location.search).has('yandex')) {
+		return Promise.resolve();
+	}
+	return inTime(loadScript('/sdk.js')).then(() => inTime(YaGames.init())).then((ysdk) => {
+		sdk = ysdk;
+		yandexGames.available = true;
+		yandexGames.lang = sdk.environment.i18n.lang;
+		// Subscribed before the game starts: the platform's opening ad pauses it with no callback
+		// of its own, and a subscriber is told at once if the game is paused already.
+		sdk.on('game_api_pause', () => setPaused(true));
+		sdk.on('game_api_resume', () => setPaused(false));
+		return inTime(sdk.getPlayer()).then((found) => inTime(found.getData()).then((data) => {
+			yandexGames.data = JSON.stringify(data);
+			player = found;
+		})).catch((error) => console.warn('Yandex Games: no saved data this time.', error));
+	}).catch((error) => console.warn('Yandex Games SDK unavailable, playing locally.', error));
+}());
+
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":8703580,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
-const engine = new Engine(GODOT_CONFIG);
+const loadingProgress = document.getElementById('status-progress');
+const engine = new Engine({
+	...GODOT_CONFIG,
+	// The engine's preloader may report once more after the loading screen is gone.
+	'onProgress': function (current, total) {
+		const statusProgress = loadingProgress;
+		if (current > 0 && total > 0) {
+			statusProgress.value = current;
+			statusProgress.max = total;
+		} else {
+			statusProgress.removeAttribute('value');
+			statusProgress.removeAttribute('max');
+		}
+	},
+});
 
 (function () {
 	const statusOverlay = document.getElementById('status');
@@ -200,17 +380,14 @@ const engine = new Engine(GODOT_CONFIG);
 		}
 	} else {
 		setStatusMode('progress');
-		engine.startGame({
-			'onProgress': function (current, total) {
-				if (current > 0 && total > 0) {
-					statusProgress.value = current;
-					statusProgress.max = total;
-				} else {
-					statusProgress.removeAttribute('value');
-					statusProgress.removeAttribute('max');
-				}
-			},
-		}).then(() => {
+		// The engine downloads while the SDK starts and the saved data comes; Platform reads that
+		// data as the game starts.
+		const pack = `${GODOT_CONFIG['executable']}.pck`;
+		Promise.all([
+			engine.init(GODOT_CONFIG['executable']),
+			engine.preloadFile(pack, pack),
+			yandexReady,
+		]).then(() => engine.start({ 'args': ['--main-pack', pack] })).then(() => {
 			setStatusMode('hidden');
 		}, displayFailureNotice);
 	}
