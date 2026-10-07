@@ -1,3 +1,407 @@
+Dino Tag uses these art, music, sound and font packs:
+
+
+== characters/cartoon_dinosaurs
+
+Cartoon Dinosaur Platformer Characters by Ragnar Random
+Source: https://opengameart.org/content/cartoon-dinosaur-platformer-characters
+Version: the page's three files (rynosaurlandcharacters_0.png, playersprites_revision.png,
+enemysprites_revision.png); submitted 2021-12-13.
+Downloaded: 2026-09-28
+License: Creative Commons Attribution 3.0 (CC BY 3.0), https://creativecommons.org/licenses/by/3.0/legalcode
+
+The page's "Copyright/Attribution Notice", verbatim:
+
+  Ragnar Random, derivative of prior works by surt, GrafxKid and xing qiu. Link back to OpenGameArt.org
+
+What each character is derived from, per the page's description (quoted):
+
+  Tortuka: derivative of the turtle sprite from Twin Dragons by surt / CC-BY 3.0
+  Pterror: derivative of the bird sprite from Monkey Lad in Magical Planet by surt / CC0 and the head
+    of Pterosaur Baby 1 by xing qiu / CC0
+  Goober: derivative of the body of the alligator sprite from Crazy Critters by GrafxKid / CC0 and the
+    head of Anklyosaurus Baby 1 by xing qiu / CC0
+
+The files are unchanged. They are RGB with black (#000000) as the transparent color key.
+
+
+== characters/crazy_critters
+
+Crazy Critters by GrafxKid
+Source: https://opengameart.org/content/crazy-critters
+Version: the page's one file, "Crazy Critters OGA ver.png" (26.7 KB).
+Downloaded: 2026-09-28
+License: Creative Commons Zero 1.0 Universal (CC0), https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+The page's description, verbatim:
+
+  A sprite pack consisting of different creatures with different actions. Blue and Red characters
+  are meant to be player characters.
+
+The file is unchanged. It has no transparency: the sprites sit on a two-tone checkerboard of 32x32
+cells, #9d8e87 and #8e817a. The game uses copies with the checkerboard removed (ASSETS.md -> Derived art).
+
+
+== characters/dino_characters
+
+Dino Characters by Arks (@ArksDigital, formerly @ScissorMarks)
+Source: https://arks.itch.io/dino-characters
+Version: 1.1 (upload "DinoCharacters - Sprites 1_1.zip", 41 kB; the page was updated 2026-09-16)
+Downloaded: 2026-09-24
+License: Creative Commons Attribution 4.0 International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/legalcode
+  (the page's "Asset license" field)
+
+From the page, verbatim:
+
+  You can use these for what ever you'd like, but be sure to tag my twitter @ArksDigital and credit me properly.
+
+Unchanged from the download.
+
+
+== characters/dino_family
+
+Dino Family by DemChing, based on Dino Characters by Arks (@ArksDigital, formerly @ScissorMarks)
+Source: https://demching.itch.io/dino-family
+Version: v1.5.0 (upload "Dino Family v1.5.0", 407 kB)
+Downloaded: 2026-09-24
+License: Creative Commons Attribution 4.0 International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/legalcode
+
+From the "License" section of the page, verbatim:
+
+  This asset is published with Creative Commons Attribution v4.0 International.
+  It is FREE to use the asset even for commercial purpose. It is also free to use the asset in
+  Dino Characters at this moment but you may need to check if anything has changed.
+  Please don't forget to give attribution to @ScissorMarks and me while using this asset pack!
+
+The page also says: "Since v1.0.1, the original work by @ScissorMarks will not be included in
+the downloads." The original frames are in ../dino_characters.
+
+Unchanged from the download.
+
+
+== environment/rocky_roads
+
+Rocky Roads by Essssam
+Source: https://essssam.itch.io/rocky-roads
+Version: the free "Rocky Roads.zip" upload, 100 kB; the page was updated 2026-09-16. Not the paid Godot 4.3 project.
+Downloaded: 2026-09-24
+License: Creative Commons Zero 1.0 Universal (CC0), https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+From the "License" section of the page, verbatim:
+
+  Free for personal and commercial use, no attribution required (Creative Commons Zero, CC0).
+
+The zip's top folder "Rocky Roads/" is this folder; everything inside it is unchanged.
+
+
+== environment/seasonal_tilesets
+
+Seasonal Tilesets by GrafxKid
+Source: https://grafxkid.itch.io/seasonal-tilesets
+Version: "Seasonal Tilesets.zip", 75 kB; the page was updated 2026-09-16
+Downloaded: 2026-09-24
+License: Creative Commons Zero 1.0 Universal (CC0), https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+From the "PERMISSIONS" section of the page, verbatim:
+
+  You can freely use these assets for personal and commercial use. Crediting is optional, but if you'd like to, thank you very much!
+
+The zip had its own LICENSE.txt at this path. This file replaces it; its text, verbatim:
+
+  GrafxKid's publicly released pixel art assets fall under the CC0 1.0 Universal Public Domain License.
+
+  CC0 1.0 terms - https://creativecommons.org/publicdomain/zero/1.0/
+
+The zip's top folder "Seasonal Tilesets/" is this folder; everything else inside it is unchanged.
+
+
+== fonts/press_start_2p
+
+Press Start 2P by CodeMan38 (Cody Boisclair)
+Source: https://github.com/google/fonts/tree/main/ofl/pressstart2p
+Downloaded: 2026-09-24
+License: SIL Open Font License 1.1, full text below. "Press Start 2P" is a Reserved Font Name: a modified font must not use it.
+
+Copyright 2012 The Press Start 2P Project Authors (cody@zone38.net), with Reserved Font Name "Press Start 2P".
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded, 
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+
+
+== music/dreamland_lullaby
+
+Dreamland Lullaby by genderfreak
+Source: https://opengameart.org/content/dreamland-lullaby
+Version: the page's dreamland_lullaby.wav (6.2 MB), its only file.
+Downloaded: 2026-09-28
+License: Creative Commons Attribution 4.0 International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/legalcode
+Copyright/Attribution Notice, verbatim: by https://genderfreak.itch.io/ or https://opengameart.org/users/genderfreak
+(On 2026-09-28 genderfreak.itch.io shows the profile "Cascadia".)
+
+The page's description, verbatim:
+
+  lullaby type song for a dream level with a marching hihat rhythm, loops, made with Bosca Ceoil Blue.
+
+Changes: re-encoded for the game by scripts/encode_music.py, like every track in assets/music: one
+static gain to -16 LUFS, so all tracks play equally loud, then Ogg Vorbis at about 80 kbit/s, at the
+source's own sample rate and exactly its length, so the loop is kept. The original is at the source.
+
+
+== music/flowerbed_fields
+
+Flowerbed Fields [Loop] by Zane Little Music
+Source: https://opengameart.org/content/flowerbed-fields-loop
+Version: the page's flowerbed_fields.ogg (1.7 MB); the page also has a WAV.
+Downloaded: 2026-09-28
+License: Creative Commons Zero 1.0 Universal (CC0), https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+The page's description, verbatim:
+
+  A cute chiptune loop to get an adventure started!
+
+Re-encoded for the game by scripts/encode_music.py, like every track in assets/music: one static gain
+to -16 LUFS, so all tracks play equally loud, then Ogg Vorbis at about 80 kbit/s, at the source's own
+sample rate and exactly its length, so the loop is kept. The original is at the source.
+
+
+== music/jungle_groove_grove
+
+Jungle Groove Grove by Christovix
+Source: https://opengameart.org/content/jungle-groove-grove
+Version: the page's "Jungle Groove Grove.ogg"; the page also has an MP3.
+Downloaded: 2026-09-28
+License: the page offers CC-BY 3.0 and CC-BY-SA 3.0. We use it under Creative Commons Attribution 3.0
+(CC BY 3.0), https://creativecommons.org/licenses/by/3.0/legalcode
+
+The page's attribution request, verbatim:
+
+  If you use this song, please make the credit attribution as follows: "Music by Christovix Games" or
+  if there are songs by multiple composers, "[Song Title] by Christovix Games, as heard in [part of the
+  game where the song is featured]"
+
+The page's description, verbatim:
+
+  This song would fit right in on a Jungle level in a platformer.
+
+Re-encoded for the game by scripts/encode_music.py, like every track in assets/music: one static gain
+to -16 LUFS, so all tracks play equally loud, then Ogg Vorbis at about 80 kbit/s, at the source's own
+sample rate and exactly its length, so the loop is kept. The original is at the source.
+
+
+== music/mintodog_8bit_action
+
+Plains Stage, Beach Stage, Mountain Stage and Amusement park Stage by MintoDog, from the "For 8bit Action" series
+Sources:
+  plains_stage.ogg          https://opengameart.org/content/plains-stage          (plains_stage_bpm125.ogg, 1.5 MB)
+  beach_stage.ogg           https://opengameart.org/content/beach-stage           (beach_stage_bpm128.ogg, 2 MB)
+  mountain_stage.ogg        https://opengameart.org/content/mountain-stage        (mountain_stage_bpm165.ogg, 1.6 MB)
+  amusement_park_stage.ogg  https://opengameart.org/content/amusement-park-stage  (amusement_park_stage_bpm150.ogg, 1.9 MB)
+Downloaded: 2026-09-28
+License: Creative Commons Zero 1.0 Universal (CC0), https://creativecommons.org/publicdomain/zero/1.0/legalcode (each page)
+
+Each page's description, verbatim:
+
+  8bit music for action game. This music is loopable. File formats are mp3 and ogg.
+
+Re-encoded for the game by scripts/encode_music.py, like every track in assets/music: one static gain
+to -16 LUFS, so all tracks play equally loud, then Ogg Vorbis at about 80 kbit/s, at the source's own
+sample rate and exactly its length, so the loop is kept. The original is at the source.
+
+
+== music/suez_crisis
+
+Suez Crisis by Spring Spring (Julie Damsgaard)
+Source: https://opengameart.org/content/suez-crisis
+Version: the page's "Suez Crisis.ogg" (2.1 MB).
+Downloaded: 2026-09-28
+License: the page offers CC-BY 3.0, OGA-BY 3.0, CC0 and CC-BY-SA 3.0. We use it under
+Creative Commons Zero 1.0 Universal (CC0), https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+The page's "Copyright/Attribution Notice", verbatim (not required under CC0):
+
+  Produced by Julie Damsgaard/Spring Spring/Spring Enterprises @ https://spring-enterprises.neocities.org
+
+The page's description, verbatim:
+
+  Egyptian-style chiptune, sort of.
+
+Re-encoded for the game by scripts/encode_music.py, like every track in assets/music: one static gain
+to -16 LUFS, so all tracks play equally loud, then Ogg Vorbis at about 80 kbit/s, at the source's own
+sample rate and exactly its length, so the loop is kept. The original is at the source.
+
+
+== music/super_helmknight_ost
+
+Stage 3 (Winter), from the Super HelmKnight OST (16-bit, Game Boy Advance style), by wyver9
+Source: https://opengameart.org/content/super-helmknight-ost-16-bit-game-boy-advance-style
+Version: the page's 05_winter_final.wav (18 MB); the page has the OST's other tracks too, not used.
+Downloaded: 2026-09-28
+License: the page offers CC-BY 4.0, CC-BY 3.0 and OGA-BY 3.0. We use it under Creative Commons
+Attribution 4.0 (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/legalcode
+
+The page's attribution request, verbatim:
+
+  Just credit me somehow @wyver9
+
+The page's description, verbatim:
+
+  My first experience in Game Boy Advance music style using old-school orchestra samples mixed with
+  simple square waves.
+
+Re-encoded for the game by scripts/encode_music.py, like every track in assets/music: one static gain
+to -16 LUFS, so all tracks play equally loud, then Ogg Vorbis at about 80 kbit/s, at the source's own
+sample rate and exactly its length, so the loop is kept. The original is at the source.
+
+
+== music/wacky_wobblings
+
+Wacky Wobblings by Fupi
+Source: https://opengameart.org/content/wacky-wobblings
+Version: the page's wackywobblings.ogg (702.1 KB), the loop; its separate intro is not used.
+Downloaded: 2026-09-28
+License: Creative Commons Zero 1.0 Universal (CC0), https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+The page's description, verbatim:
+
+  Wacky song with slap bass and swing, for any kind of humorous game. This one is loopable but also
+  comes with an intro section, and has a sickkkkkkkkkkkkkk bass solo. Made in Beepbox.
+
+Re-encoded for the game by scripts/encode_music.py, like every track in assets/music: one static gain
+to -16 LUFS, so all tracks play equally loud, then Ogg Vorbis at about 80 kbit/s, at the source's own
+sample rate and exactly its length, so the loop is kept. The original is at the source.
+
+
+== sfx/kenney_music_jingles
+
+Music Jingles by Kenney Vleugels (Kenney.nl)
+Source: https://kenney.nl/assets/music-jingles
+Version: kenney_music-jingles.zip; the files used are from its "8-Bit jingles" folder.
+Downloaded: 2026-09-28
+License: Creative Commons Zero 1.0 Universal (CC0), https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+The zip's License.txt, verbatim (in part):
+
+  License (Creative Commons Zero, CC0)
+  http://creativecommons.org/publicdomain/zero/1.0/
+
+  You may use these assets in personal and commercial projects.
+  Credit (Kenney or www.kenney.nl) would be nice but is not mandatory.
+
+Leveled for the game by scripts/encode_sfx.py, like every sound in assets/sfx: one static gain to
+-14 dBFS RMS (never above -1 dBFS peak), written as 16-bit WAV at the source's rate. Only the sounds in
+use are kept; the originals are at the source.
+
+
+== sfx/retro_sfx_512
+
+The Essential Retro Video Game Sound Effects Collection [512 sounds] by Juhani Junkala
+(published on OpenGameArt by SubspaceAudio as "512 Sound Effects (8-bit style)")
+Source: https://opengameart.org/content/512-sound-effects-8-bit-style
+Version: the page's zip, "The Essential Retro Video Game Sound Effects Collection [512 sounds].zip".
+Downloaded: 2026-09-28
+License: Creative Commons Zero 1.0 Universal (CC0), https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+The zip's INFO.txt, verbatim (in part):
+
+  These sound effects have been released under CC0 creative commons license. You can do anything
+  you want with these sounds.
+
+  All the sounds are at 44100hz 16bit mono .wav format and at -6db volume level.
+
+Leveled for the game by scripts/encode_sfx.py, like every sound in assets/sfx: one static gain to
+-14 dBFS RMS (never above -1 dBFS peak), written as 16-bit WAV at the source's rate. Only the sounds in
+use are kept; the originals are at the source.
+
+
 Dino Tag is made with Godot Engine (godotengine.org), under the MIT license:
 
 Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md).
